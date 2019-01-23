@@ -1,0 +1,84 @@
+/**index.wxss**/
+.container {
+  background: #8a807e;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  color: white;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 20rpx;
+}
+
+.table-cell {
+  background:#555;
+  width:700rpx;
+  display: flex;
+  flex-direction:row;
+  padding-right:15rpx;
+  height: 140rpx;
+}
+
+.table-cell.odd {
+  background: #666;
+}
+
+.table-cell .first {
+  color: #FF4136;
+}
+
+.table-cell .secound {
+  color: #FF851B;
+}
+
+.table-cell .third {
+  color: #FFDC00;
+}
+
+.table-cell text {
+  padding: 80rpx 0;
+}
+
+.userinfo-nickname.self-text{
+  color: white;
+}
+
+.table-cell .table-td {
+  margin: 42rpx 10rpx;
+}
+
+.table-cell .table-td-img {
+  margin-top: 12rpx;
+}
+
+.table-cell .float-right {
+  float: right;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.userinfo-nickname-white {
+  color: #ddd;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.self {
+  margin-top: 20rpx;
+}

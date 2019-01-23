@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="table">
+        <view class="table-cell">
+          <view class="table-td-img" style="flex:1;">
+            <image class="userinfo-avatar" src="{{model.img}}" mode="cover"></image>
+          </view>
+          <view class="table-td" wx:if="" style="flex:1;flex-direction:row;text-align:center;">
+            <view>
+              <text class="userinfo-nickname-white">最近得分</text>
+            </view>
+            <view>
+              <text class="userinfo-nickname-white">{{model.recent}}</text>
+            </view>
+          </view>
+          <view class="table-td" style="flex:2;flex-direction:row;">
+            <view>
+              <text class="userinfo-nickname-white">总得分</text>
+            </view>
+            <view>
+              <text class="userinfo-nickname-white">{{model.total}}</text>
+            </view>
+          </view>
+        </view>
+        <view style="margin:50rpx 0;">
+          <view class="table-list" wx:if="{{model.nickName && self!='true'}}">
+            <text class="userinfo-nickname">微信昵称：</text>
+            <text class="userinfo-nickname-white">陈志成</text>
+          </view>
+          <view class="table-list">
+            <text class="userinfo-nickname">FCC账号：</text>
+            <text class="userinfo-nickname-white">{{model.username}}</text>
+          </view>
+          <view class="table-list" wx:if="{{model.points}}">
+            <text class="userinfo-nickname">过关数量：</text>
+            <text class="userinfo-nickname-white">390</text>
+          </view>
+          <view class="table-list" wx:if="{{model.projects}}">
+            <text class="userinfo-nickname">项目数量：</text>
+            <text class="userinfo-nickname-white">31</text>
+          </view>
+          <view class="table-list" wx:if="{{model.community}}">
+            <text class="userinfo-nickname">社区算法：</text>
+            <text class="userinfo-nickname-white">359</text>
+          </view>
+          <view class="table-list">
+            <text class="userinfo-nickname">更新时间：</text>
+            <text class="userinfo-nickname-white">{{model.lastUpdate}}</text>
+          </view>
+        </view>
+        <view wx:if="{{self=='true'}}" style="margin:50rpx 0;border-top:1px solid #8a807e;">
+          <view style="margin:21rpx;padding-top:20rpx;">
+            <text class="userinfo-nickname-white">微信账号</text>
+          </view>
+          <view style="margin:21rpx;display:flex;flex-direction:row;">
+            <view class="table-td-img" style="flex:1;">
+              <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            </view>
+            <view class="table-td" style="flex:1;flex-direction:row;padding-top:25rpx;">
+              <view>
+                <text class="userinfo-nickname-white">{{userInfo.nickName}}</text>
+              </view>
+              <view>
+                <image wx:if="{{!userInfo.gender}}" style="width:45rpx;height:45rpx;" class="userinfo-avatar back" src="./female.png" mode="cover"></image>
+                <image wx:if="{{userInfo.gender}}" style="width:45rpx;height:45rpx;" class="userinfo-avatar back" src="./male.png" mode="cover"></image>
+              </view>
+            </view>
+            <view class="table-td" style="flex:1;padding-top:40rpx;text-align:center;">
+              <button type="default" wx:if="{{!model.openid}}" size="mini" plain="true" bindtap="bindAccount" style="height:75rpx;line-height:70rpx;color:white;border-color:#666;" loading="{{loading}}"> 绑定 </button>
+              <button type="default" wx:if="{{model.openid}}" size="mini" plain="true" bindtap="unbindAccount" style="height:75rpx;line-height:70rpx;color:white;border-color:#666;" loading="{{loading}}"> 解绑 </button>
+            </view>            
+          </view>
+        </view>
+
+        <view wx:if="{{self=='true' && model.openGId && !group}}" bindtap="bindGroupRank" style="margin:50rpx 0;border-top:1px solid #8a807e;text-align:center;margin-bottom:10rpx;padding-top:30rpx;">
+            <text class="userinfo-nickname-white">查看群排行榜</text>
+        </view> 
+
+        <view wx:if="{{self=='true' && model.openGId && group}}" bindtap="bindFCCRank" style="margin:50rpx 0;border-top:1px solid #8a807e;text-align:center;margin-bottom:10rpx;padding-top:30rpx;">
+            <text class="userinfo-nickname-white">查看FCC排行榜</text>
+        </view> 
+      </view>
+
+      <view class="table-cell self" style="width:700rpx;" wx:if="{{self=='false'}}">
+        <view class="table-td" style="flex:1;">
+          <image bindtap="bindBack" class="userinfo-avatar back" src="./back.png" mode="cover"></image>
+        </view>
+        <view class="table-td" style="margin-top:54rpx;">
+          <image bindtap="bindRefresh"  mode="aspectFit" class="userinfo-avatar refresh" src="./refresh.png" mode="cover" animation="{{animationData}}"></image>
+        </view>
+      </view>
+      
+    </block>
+  </view>
+</view>

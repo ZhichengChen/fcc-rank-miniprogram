@@ -1,0 +1,102 @@
+/**index.wxss**/
+.container {
+  background: #8a807e;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  color: white;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 6rpx;
+}
+
+.back {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.table {
+  background:#555;
+  width:640rpx;
+  padding: 30rpx;
+}
+
+.refresh {
+  width: 50rpx;
+  height: 50rpx;
+}
+.table-list {
+  margin: 30rpx;
+}
+
+.table-cell {
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px #8a807e solid;
+}
+
+.table-cell.odd {
+  background: #666;
+}
+
+.table-cell .first {
+  color: #FF4136;
+}
+
+.table-cell .secound {
+  color: #FF851B;
+}
+
+.table-cell .third {
+  color: #FFDC00;
+}
+
+.table-cell text {
+  padding: 80rpx 0;
+}
+
+.userinfo-nickname.self-text{
+  color: white;
+}
+
+.table-cell .table-td {
+  margin: 42rpx 10rpx;
+}
+
+.table-cell .table-td-img {
+  margin-top: 12rpx;
+}
+
+.table-cell .float-right {
+  float: right;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.userinfo-nickname-white {
+  color: #ddd;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.self {
+  margin-top: 20rpx;
+  padding: 10rpx 0;
+}
